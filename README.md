@@ -1,4 +1,4 @@
-# Pi CUPS
+# Pi-CUPS
 
 Docker based CUPS Printer server for Raspberry PI that supports the Samsung M2020 and others...
 
