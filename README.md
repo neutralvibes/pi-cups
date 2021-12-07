@@ -65,6 +65,13 @@ A confirmation prompt is shown when restoring.
 sudo ./restore.sh
 ```
 
+***
+
 ## To do
 
 [ ] The container runs in privileged mode 😱, fix this.
+
+***
+
+## Credits
+* Based on https://github.com/olbat/dockerfiles/tree/master/cupsd
