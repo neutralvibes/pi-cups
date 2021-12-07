@@ -1,0 +1,37 @@
+version: '2.4'
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '8631:80'
+    volumes:
+      - './data/nginx/config/nginx.conf:/etc/nginx/nginx.conf'
+      - './data/nginx/logs:/var/log/nginx/'
+      - './data/nginx/html:/var/www/html/'
+      - ppd_files:/var/www/html/drivers
+
+    command: [nginx, '-g', 'daemon off;']
+    restart: unless-stopped
+
+  app:
+    build:
+      context: ./build
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/run/dbus:/var/run/dbus
+      - './data/backups:/backups'
+      - ppd_files:/splix-patches/splix/ppd
+      - cups_data:/etc/cups
+      - /dev:/dev
+    device_cgroup_rules:
+      - 'c 180:* rmw'
+      
+    network_mode: host
+    restart: unless-stopped
+
+volumes:
+  ppd_files:
+  cups_data:
