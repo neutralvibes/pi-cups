@@ -15,7 +15,7 @@ This docker container:-
 * Builds the Splix patches
 * Installs the Splix patches
 * Persists the configuration
-* Serves the ppd files for download @ http://host:8631
+* Serves the new driver files for download @ http://host:8631
 
 Based on https://github.com/olbat/dockerfiles/tree/master/cupsd
 ## Usage
@@ -28,13 +28,13 @@ Based on https://github.com/olbat/dockerfiles/tree/master/cupsd
 `docker-compose up -d
 ```
 
-You should now be able to connect http://hostname:631
+You should now be able to connect to CUPS @ http://hostname:631
 
 ### Using drivers
 
-Remember, this is usually for those drivers not already available in CUPS, so see if it's not there first.
+Remember, this is usually for those drivers not already available in CUPS, so see if it's not there already first.
 
-In-order to setup a printer using one of the patched drivers you have to surf to http://hostname:8631 and download the ppd file for your model of printer.
+In-order to setup a printer using one of the patched drivers you have to surf to http://hostname:8631 and download the ppd driver file for your model of printer.
 
 In CUPS go to:-
 
@@ -42,14 +42,14 @@ In CUPS go to:-
 * Select Samsung M2020 Series (or the printer required) -> [Continue]
 * Make any changes required -> [Continue]
 * [Choose File]
-* Select the driver you previously downloaded.
+* Select the driver file you previously downloaded.
 * Click [Add Printer]
 
 ### Backups
 
 * Location -> `data/backups/config.tar`
 
-The CUPS data is stored on a docker volume for persistent storage. If the need arises, you can create or restore from a  tar backup. The creates a copy of the `/etc/cups` folder.
+The CUPS data is stored on a docker volume for persistent storage. If the need arises, you can create or restore from a  tar backup. This creates a copy of the `/etc/cups` folder.
 
 #### Run
 
