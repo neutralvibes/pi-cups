@@ -11,13 +11,22 @@ After a lot of wasted time I finally managed to find some patches to Splix @ htt
 This docker container:-
 
 * Installs CUPS
+* printer-driver-all
+* printer-driver-cups-pdf
+* openprinting-ppds
 * Enables remote access
 * Builds the Splix patches
 * Installs the Splix patches
 * Persists the configuration
 * Serves the new driver files for download @ http://host:8631
 
-Based on https://github.com/olbat/dockerfiles/tree/master/cupsd
+
+## Installation
+
+```bash
+git clone https://github.com/neutralvibes/pi-cups.git && cd pi-cups && chmod +x *.sh
+```
+
 ## Usage
 
 **On the very first run it will take a while as it builds the image.** CUPS has a ton of requirements so having a cup of tea and a slice of cake while it completes is recommended. On a Raspberry pi 3B it took circa 30 mins.
@@ -25,7 +34,7 @@ Based on https://github.com/olbat/dockerfiles/tree/master/cupsd
 ### Starting
 
 ```bash
-`docker-compose up -d
+docker-compose up -d
 ```
 
 You should now be able to connect to CUPS @ http://hostname:631
@@ -51,7 +60,7 @@ In CUPS go to:-
 
 The CUPS data is stored on a docker volume for persistent storage. If the need arises, you can create or restore from a  tar backup. This creates a copy of the `/etc/cups` folder.
 
-#### Run
+#### Create
 
 ```bash
 sudo ./backup.sh
@@ -74,4 +83,5 @@ sudo ./restore.sh
 ***
 
 ## Credits
+
 * Based on https://github.com/olbat/dockerfiles/tree/master/cupsd
