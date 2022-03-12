@@ -54,6 +54,7 @@ RUN sed -e '0,/^</s//DefaultEncryption IfRequested\n&/' -i /etc/cups/cupsd.conf 
   && echo "ServerAlias *" >> /etc/cups/cupsd.conf
 
 VOLUME /splix-patches/splix/ppd
+VOLUME /usr/share/cups/model
 VOLUME /etc/cups
 
 COPY ["entrypoint.sh", "/"]

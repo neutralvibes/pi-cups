@@ -20,12 +20,19 @@ This docker container:-
 * Persists the configuration
 * Serves the new driver files for download @ http://host:8631
 
-
 ## Installation
 
 ```bash
 git clone https://github.com/neutralvibes/pi-cups.git && cd pi-cups && chmod +x *.sh
 ```
+
+If cups is already installed on your system you will need to stop and disable it otherwise the next step will fail. It doesn't hurt to do this if you are not sure.
+
+~~~bash
+sudo systemctl stop cups
+sudo systemctl disable cups
+~~~
+
 
 ## Usage
 
@@ -38,6 +45,10 @@ docker-compose up -d
 ```
 
 You should now be able to connect to CUPS @ http://hostname:631
+
+### Admin credentials
+
+Cups admin user & password are both 'print'
 
 ### Using drivers
 
