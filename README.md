@@ -22,6 +22,12 @@ This docker container:-
 
 ## Installation
 
+First install docker and make sure the current user is added to the docker group so.
+
+```bash
+git clone https://github.com/neutralvibes/pi-cups.git && cd pi-cups && chmod +x *.sh
+```
+
 ```bash
 git clone https://github.com/neutralvibes/pi-cups.git && cd pi-cups && chmod +x *.sh
 ```
@@ -43,6 +49,7 @@ sudo systemctl disable cups
 ```bash
 docker-compose up -d
 ```
+IMPORTANT: You should not run this command with sudo. If you have an error without sudo, make sure you have added your user to the docker group.
 
 You should now be able to connect to CUPS @ http://hostname:631
 
