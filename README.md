@@ -44,6 +44,12 @@ sudo systemctl disable cups
 docker-compose up -d
 ```
 
+Or if your user hasn't been added to the docker group:
+
+```bash
+sudo docker-compose up -d
+```
+
 You should now be able to connect to CUPS @ http://hostname:631
 
 ### Admin credentials
