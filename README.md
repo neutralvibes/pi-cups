@@ -29,6 +29,8 @@ git clone https://github.com/neutralvibes/pi-cups.git && cd pi-cups && chmod +x 
 If cups is already installed on your system you will need to stop and disable it otherwise the next step will fail. It doesn't hurt to do this if you are not sure.
 
 ~~~bash
+sudo systemctl stop cups-browsed
+sudo systemctl disable cups-browsed
 sudo systemctl stop cups
 sudo systemctl disable cups
 ~~~
